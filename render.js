@@ -50,6 +50,8 @@ const TEMPLATES = [
   { file: 'verdict-cards',      mod: require('./src/templates/verdict-cards'),      margin: '0' },
   { file: 'envelope-labels',    mod: require('./src/templates/envelope-labels'),    margin: '0' },
   { file: 'private-notes',      mod: require('./src/templates/private-notes'),      margin: '0' },
+  { file: 'envelope-texts',     mod: require('./src/templates/envelope-texts'),     margin: '0' },
+  { file: 'invitation',         mod: require('./src/templates/invitation'),         margin: '0' },
 ];
 
 const PAGE_SIZE = { a4: 'A4', letter: 'letter' };
@@ -113,6 +115,21 @@ async function main() {
     const html = htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink, margin });
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
+    // Shrink-to-fit: any read-aloud panel whose text overruns its page has its
+    // body eased down until it fits, so long passages never clip. Content-
+    // agnostic — works for any mystery, any length.
+    await page.evaluate(() => {
+      for (const env of document.querySelectorAll('.env')) {
+        const inner = env.querySelector('.env-inner');
+        const body = env.querySelector('.env-body');
+        if (!inner || !body) continue;
+        const cs = getComputedStyle(env);
+        const avail = env.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+        let px = parseFloat(getComputedStyle(body).fontSize);
+        let guard = 0;
+        while (inner.scrollHeight > avail && px > 9 && guard < 80) { px -= 0.5; body.style.fontSize = px + 'px'; guard++; }
+      }
+    });
     const buf = await page.pdf({ ...dims(paper), printBackground: true, preferCSSPageSize: true });
     if (outPath) fs.writeFileSync(outPath, buf);
     const pages = (buf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;

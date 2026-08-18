@@ -444,6 +444,7 @@ I am not asking you to dress for dinner. I am asking you to come.
 ---
 
 *[Date] · [Time] · [Address]*
+
 *Your character details will follow separately. Please read them before you arrive, and discuss them with nobody.*
 
 ---

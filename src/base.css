@@ -486,3 +486,113 @@ html[data-ink='saver'] .bk-round-tab {
 .pn-finis { display: flex; justify-content: center; padding-top: 2mm; }
 .pn-finis i { width: 2mm; height: 2mm; background: var(--accent); transform: rotate(45deg); }
 html[data-ink='saver'] .pn-finis i { background: var(--ink); }
+
+/* ---- Envelope texts (read aloud) ------------------------------------------*/
+.env {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  padding: 16mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.env-inner { width: 100%; }
+/* Dark inset panel in colour; framed light panel in saver. Inset from the sheet
+   edge so it prints cleanly on a home printer (no full-bleed). */
+html[data-ink='colour'] .env {
+  background: var(--band-bg);
+  color: var(--band-ink);
+  margin: 9mm;
+  width: calc(var(--page-w) - 18mm);
+  height: calc(var(--page-h) - 18mm);
+}
+html[data-ink='saver'] .env {
+  color: var(--ink);
+  margin: 9mm;
+  width: calc(var(--page-w) - 18mm);
+  height: calc(var(--page-h) - 18mm);
+  border: 0.4mm solid var(--ink);
+}
+.env-kicker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 7mm;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+html[data-ink='colour'] .env-kicker { color: var(--band-ink); }
+.env-rule { display: flex; align-items: center; justify-content: center; gap: 3mm; margin: 5mm 0 8mm; color: var(--accent); }
+html[data-ink='colour'] .env-rule { color: var(--accent); }
+.env-rule::before, .env-rule::after { content: ''; height: 0.4mm; width: 26mm; background: currentColor; }
+.env-rule i { width: 2.4mm; height: 2.4mm; background: currentColor; transform: rotate(45deg); }
+.env-body {
+  font-family: var(--font-body);
+  font-size: 5mm;
+  line-height: 1.62;
+  max-width: 150mm;
+  margin: 0 auto;
+}
+.env-body p { margin: 0 0 4mm; }
+.env-body p.direction { font-style: italic; opacity: 0.72; font-size: 4.2mm; }
+.env-body em { font-style: italic; }
+.env-body strong { font-weight: 700; letter-spacing: 0.02em; }
+
+/* ---- Invitation -----------------------------------------------------------*/
+.inv {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  padding: 12mm;
+  display: flex;
+}
+.inv-frame {
+  flex: 1;
+  border: 0.5mm solid var(--accent);
+  outline: 0.2mm solid var(--accent);
+  outline-offset: 1.5mm;
+  padding: 16mm 16mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.inv-orn { color: var(--accent); font-size: 6mm; line-height: 1; }
+.inv-orn-top { margin-bottom: 6mm; }
+.inv-orn-bot { margin-top: 6mm; }
+.inv-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14mm;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 8mm;
+  color: var(--ink);
+}
+.inv-body {
+  font-family: var(--font-body);
+  font-size: 4.4mm;
+  line-height: 1.6;
+  max-width: 140mm;
+  margin: 0 auto;
+  color: var(--ink);
+}
+.inv-body p { margin: 0 0 4mm; }
+.inv-body p.direction { font-style: italic; color: var(--muted); }
+.inv-body em { font-style: italic; }
+.inv-body strong { font-weight: 700; }
+
+/* Fill-in field: a line to write on with a faint label beneath. */
+.inv-fill { display: inline-flex; flex-direction: column; align-items: center; vertical-align: baseline; min-width: 52mm; }
+.inv-fill-line { display: block; width: 100%; border-bottom: 0.3mm solid var(--rule); height: 4.5mm; }
+.inv-fill-label {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 2.6mm;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1mm;
+}

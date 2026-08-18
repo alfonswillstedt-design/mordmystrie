@@ -203,9 +203,18 @@ function parseVerdictCard(body, model, report) {
 }
 
 function parseInvitation(body, model, report) {
-  // Strip a leading scene-direction, keep bracketed fields as fill-in slots.
-  const fields = (body.match(/\[[^\]]+\]/g) || []).map((s) => s.replace(/[\[\]]/g, ''));
-  model.invitation = { html: bodyToHtml(body), fields: [...new Set(fields)] };
+  // The source separates a leading host note ("Send to guests… replace the
+  // bracketed details") from the invitation proper, and the invitation from its
+  // footer, with single rules. Split on those, drop any leading block that is
+  // only a scene-direction (host guidance never printed on the card), and keep
+  // the rest. Bracketed fields stay as fill-in slots.
+  const blocks = splitSingleRule(body);
+  const isDirectionOnly = (b) =>
+    b.trim().split('\n').filter((l) => l.trim()).every((l) => /^\*[^*].*\*$/.test(l.trim()));
+  while (blocks.length && isDirectionOnly(blocks[0])) blocks.shift();
+  const content = blocks.join('\n\n');
+  const fields = (content.match(/\[[^\]]+\]/g) || []).map((s) => s.replace(/[\[\]]/g, ''));
+  model.invitation = { html: bodyToHtml(content), fields: [...new Set(fields)] };
   report.recognised.push(`invitation: ${model.invitation.fields.length} fill-in fields (${model.invitation.fields.join(', ')})`);
 }
 
