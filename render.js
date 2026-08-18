@@ -40,10 +40,15 @@ function readToml(file) {
 const PAPERS = ['letter', 'a4'];
 const INKS = { colour: 'full-colour', saver: 'ink-saver' };
 
-// Templates registered by document type. More are added as they are built.
+// Templates registered by document type. Each declares its page margin, since
+// cards trim to the sheet edge (0) while flowing documents need real margins.
+// More are added as they are built.
 const TEMPLATES = [
-  { file: 'evidence-cards', mod: require('./src/templates/evidence-cards') },
+  { file: 'evidence-cards',     mod: require('./src/templates/evidence-cards'),     margin: '0' },
+  { file: 'character-booklets', mod: require('./src/templates/character-booklets'), margin: '15mm 16mm' },
 ];
+
+const PAGE_SIZE = { a4: 'A4', letter: 'letter' };
 
 // Inline every url('*.woff2') in a stylesheet as a base64 data URI, resolving
 // paths relative to the stylesheet's own directory. Guarantees the fonts are
@@ -56,10 +61,11 @@ function inlineFonts(css, cssDir) {
   });
 }
 
-function htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink }) {
+function htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink, margin }) {
   return `<!doctype html>
 <html data-paper="${paper}" data-ink="${ink}">
 <head><meta charset="utf-8">
+<style>@page { size: ${PAGE_SIZE[paper]}; margin: ${margin}; }</style>
 <style>${baseCss}</style>
 <style>${themeCss}</style>
 </head>
@@ -104,7 +110,7 @@ async function main() {
       for (const t of TEMPLATES) {
         const bodyHtml = t.mod.render(model);
         if (!bodyHtml.trim()) continue;
-        const html = htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink });
+        const html = htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink, margin: t.margin });
         // Load from the src dir so the relative font URLs in the theme resolve.
         await page.setContent(html, { waitUntil: 'load' });
         await page.evaluate(() => document.fonts.ready);

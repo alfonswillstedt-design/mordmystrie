@@ -34,12 +34,11 @@
   --font-mono: 'Courier New', monospace;
 }
 
-@page {
-  size: var(--page-size);
-  margin: 0;
-}
-html[data-paper='a4']     { --page-size: A4;     --page-w: 210mm; --page-h: 297mm; }
-html[data-paper='letter'] { --page-size: letter; --page-w: 216mm; --page-h: 279mm; }
+/* The @page rule (size + margin) is generated per document type by the
+   renderer, because cards want a zero margin and flowing documents want real
+   page margins, and @page cannot be selector-scoped. */
+html[data-paper='a4']     { --page-w: 210mm; --page-h: 297mm; }
+html[data-paper='letter'] { --page-w: 216mm; --page-h: 279mm; }
 
 * { box-sizing: border-box; }
 
@@ -227,3 +226,115 @@ html[data-ink='saver'] .card .finis { color: var(--ink); }
   background: var(--accent);
 }
 html[data-ink='saver'] .card .band::after { display: none; }
+
+/* ---- Character booklets ---------------------------------------------------
+   A flowing multi-page document (not the fixed card grid). Page margins come
+   from the @page rule the renderer sets. Each booklet starts on a fresh page
+   so it can be separated and handed out. Section headings are distinct; round
+   instructions get a loud tab findable in low light. */
+
+.booklet {
+  break-before: page;
+  page-break-before: always;
+  color: var(--ink);
+}
+.booklet:first-child { break-before: auto; page-break-before: auto; }
+
+.bk-head { margin-bottom: 7mm; }
+.bk-kicker {
+  font-family: var(--font-body);
+  font-size: 3mm;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2mm;
+}
+.bk-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15mm;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+.bk-rule { display: flex; align-items: center; gap: 3mm; margin-top: 4mm; color: var(--accent); }
+.bk-rule::before { content: ''; height: 0.5mm; width: 22mm; background: currentColor; }
+.bk-rule::after  { content: ''; height: 0.5mm; flex: 1; background: currentColor; opacity: 0.25; }
+.bk-rule i { width: 2.4mm; height: 2.4mm; background: currentColor; transform: rotate(45deg); }
+
+/* Two-column body keeps a longer booklet on two pages and reads like a
+   printed programme. Columns balance automatically. */
+.bk-sections {
+  column-count: 2;
+  column-gap: 9mm;
+  font-size: 3.6mm;
+  line-height: 1.44;
+}
+.bk-sec { break-inside: avoid; margin: 0 0 4.5mm; }
+.bk-h {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4.4mm;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  margin: 0 0 1.8mm;
+  padding-bottom: 1.2mm;
+  border-bottom: 0.2mm solid var(--rule);
+}
+.bk-body p { margin: 0 0 2mm; }
+.bk-body p:last-child { margin-bottom: 0; }
+.bk-body p.direction { font-style: italic; color: var(--muted); }
+.bk-body em { font-style: italic; }
+.bk-body strong { font-weight: 700; }
+
+/* Round-instruction section: a filled tab so a player flipping the sheet in a
+   dim room lands on it instantly. Saver mode swaps the fill for a heavy frame. */
+.bk-sec--round {
+  break-inside: avoid;
+  margin: 1mm 0 5mm;
+  border: 0.3mm solid var(--ink);
+}
+.bk-round-tab {
+  display: flex;
+  align-items: baseline;
+  gap: 2.5mm;
+  background: var(--band-bg);
+  color: var(--band-ink);
+  padding: 2mm 3mm;
+}
+.bk-round-word {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 3mm;
+}
+.bk-round-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 6mm;
+  line-height: 1;
+  margin-left: auto;
+}
+.bk-round-body { padding: 2.5mm 3mm 3mm; }
+.bk-round-body p { margin: 0 0 2mm; }
+.bk-round-body p:last-child { margin-bottom: 0; }
+.bk-round-body strong { font-weight: 700; }
+.bk-round-body em { font-style: italic; }
+
+html[data-ink='saver'] .bk-round-tab {
+  background: transparent;
+  color: var(--ink);
+  border-bottom: 0.3mm solid var(--ink);
+}
+
+.bk-foot {
+  column-span: all;
+  margin-top: 6mm;
+  padding-top: 2.5mm;
+  border-top: 0.2mm solid var(--rule);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 3mm;
+  color: var(--muted);
+  text-align: center;
+}
