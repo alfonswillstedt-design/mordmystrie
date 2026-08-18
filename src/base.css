@@ -596,3 +596,85 @@ html[data-ink='colour'] .env-rule { color: var(--accent); }
   color: var(--muted);
   margin-top: 1mm;
 }
+
+/* ---- Flowing documents: host guide & solution -----------------------------*/
+.doc { color: var(--ink); }
+.doc-head { margin-bottom: 7mm; }
+.doc-kicker {
+  font-family: var(--font-body);
+  font-size: 3mm;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2mm;
+}
+.doc-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13mm;
+  line-height: 1;
+  margin: 0;
+}
+.doc-rule { display: flex; align-items: center; gap: 3mm; margin-top: 4mm; color: var(--accent); }
+.doc-rule::before { content: ''; height: 0.5mm; width: 22mm; background: currentColor; }
+.doc-rule::after  { content: ''; height: 0.5mm; flex: 1; background: currentColor; opacity: 0.25; }
+.doc-rule i { width: 2.4mm; height: 2.4mm; background: currentColor; transform: rotate(45deg); }
+
+.doc-body { font-family: var(--font-body); font-size: 3.9mm; line-height: 1.5; }
+.fl-p { margin: 0 0 3mm; }
+.doc-body em { font-style: italic; }
+.doc-body strong { font-weight: 700; }
+.fl-h { font-family: var(--font-display); break-after: avoid; page-break-after: avoid; }
+.fl-h2 {
+  font-size: 6mm; font-weight: 700; color: var(--accent);
+  margin: 7mm 0 2.5mm; padding-bottom: 1.5mm; border-bottom: 0.3mm solid var(--rule);
+}
+.fl-h3 { font-size: 4.6mm; font-weight: 700; color: var(--ink); margin: 5mm 0 2mm; }
+.fl-h4 { font-size: 4mm; font-weight: 700; color: var(--ink); margin: 4mm 0 1.5mm; }
+
+.fl-ul { margin: 0 0 3mm; padding-left: 5mm; }
+.fl-ul li { margin: 0 0 1.5mm; }
+
+.fl-ol { list-style: none; margin: 0 0 3mm; padding: 0; }
+.fl-step { display: flex; gap: 3mm; margin: 0 0 2.5mm; break-inside: avoid; }
+.fl-step-n {
+  flex: 0 0 auto;
+  width: 6.5mm; height: 6.5mm;
+  background: var(--accent); color: var(--paper);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 3.6mm;
+}
+html[data-ink='saver'] .fl-step-n { background: transparent; color: var(--ink); border: 0.4mm solid var(--ink); }
+.fl-step-b { padding-top: 0.6mm; }
+
+.fl-tablewrap { margin: 0 0 4mm; }
+.fl-table { width: 100%; border-collapse: collapse; font-size: 3.4mm; }
+.fl-table th, .fl-table td { text-align: left; padding: 1.8mm 2.5mm; border-bottom: 0.2mm solid var(--rule); vertical-align: top; }
+.fl-table th { font-family: var(--font-body); font-weight: 700; border-bottom-width: 0.4mm; }
+.fl-table tbody tr:last-child td { border-bottom: none; }
+
+/* ---- Solution cover -------------------------------------------------------*/
+.sol-cover {
+  min-height: 238mm;
+  break-after: page; page-break-after: always;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.sol-cover-inner { max-width: 150mm; }
+.sol-cover-word {
+  font-family: var(--font-body);
+  text-transform: uppercase; letter-spacing: 0.4em;
+  font-size: 4mm; color: var(--muted); margin-bottom: 5mm;
+}
+.sol-cover-title { font-family: var(--font-display); font-weight: 700; font-size: 13mm; line-height: 1; margin: 0; color: var(--ink); }
+.sol-cover-rule { width: 30mm; height: 0.5mm; background: var(--accent); margin: 8mm auto; }
+.sol-cover-warn { font-family: var(--font-display); font-weight: 700; font-size: 9mm; color: var(--accent); margin: 0 0 6mm; }
+.sol-cover-note { font-family: var(--font-body); font-size: 4mm; line-height: 1.55; color: var(--ink); margin: 0 auto 10mm; max-width: 130mm; }
+.sol-cover-seal {
+  display: inline-block;
+  font-family: var(--font-body); font-size: 3mm; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink); border: 0.4mm solid var(--ink); padding: 2.5mm 5mm;
+}
+
+/* Solution reveal: set the read-aloud block apart a little. */
+.solution .fl-h2 { margin-top: 8mm; }

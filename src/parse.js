@@ -270,6 +270,10 @@ function parseFlow(md, report, label) {
   for (const line of lines) {
     const t = line.trim();
     if (!t) { flushPara(); flushTable(); continue; }
+    // Horizontal rules (---, ***, ___) are section separators in the source;
+    // the headings already divide the document, so drop the rule itself rather
+    // than letting a literal "---" print.
+    if (/^(-{3,}|\*{3,}|_{3,})$/.test(t)) { flushPara(); flushTable(); continue; }
     const h = t.match(/^(#{1,4})\s+(.+)/);
     if (h) { flushPara(); flushTable(); blocks.push({ type: 'h', level: h[1].length, html: inline(h[2].trim()) }); continue; }
     if (/^\|/.test(t)) {

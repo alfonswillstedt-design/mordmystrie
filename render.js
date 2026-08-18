@@ -52,6 +52,8 @@ const TEMPLATES = [
   { file: 'private-notes',      mod: require('./src/templates/private-notes'),      margin: '0' },
   { file: 'envelope-texts',     mod: require('./src/templates/envelope-texts'),     margin: '0' },
   { file: 'invitation',         mod: require('./src/templates/invitation'),         margin: '0' },
+  { file: 'host-guide',         mod: require('./src/templates/host-guide'),         margin: '15mm 16mm' },
+  { file: 'solution',           mod: require('./src/templates/solution'),           margin: '16mm', separate: true },
 ];
 
 const PAGE_SIZE = { a4: 'A4', letter: 'letter' };
@@ -160,7 +162,17 @@ async function main() {
         const opts = t === t_booklets ? { padAfter: bookletPad } : {};
         const bodyHtml = t.mod.render(model, opts);
         if (!bodyHtml.trim()) continue;
-        await toPdf(bodyHtml, { paper, ink, margin: t.margin, outPath: path.join(dir, `${t.file}.pdf`) });
+        // The solution is kept out of the play-materials folders entirely, in a
+        // clearly-marked separate folder, so the host never opens it by accident.
+        let outPath;
+        if (t.separate) {
+          const sdir = path.join(outRoot, 'SOLUTION — do not open until the end');
+          fs.mkdirSync(sdir, { recursive: true });
+          outPath = path.join(sdir, `${paper}-${inkDir}.pdf`);
+        } else {
+          outPath = path.join(dir, `${t.file}.pdf`);
+        }
+        await toPdf(bodyHtml, { paper, ink, margin: t.margin, outPath });
         count++;
       }
     }
