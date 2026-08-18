@@ -1,0 +1,229 @@
+/* ============================================================================
+   BASE LAYOUT — content-agnostic. Knows nothing about any mystery.
+   Physical dimensions, page setup, cut geometry, card grid, ink-mode switches.
+   Themes layer colour and type on top of this via CSS variables.
+   ============================================================================ */
+
+/* Paper + ink are injected as data-attributes on <html> by the renderer:
+   data-paper="a4|letter"  data-ink="colour|saver"                          */
+
+:root {
+  /* Card geometry is identical on A4 and Letter (a card is one physical object
+     regardless of the buyer's paper). The grid is centred on whichever page. */
+  --card-w: 96mm;
+  --card-h: 128mm;
+  --cut-gap: 8mm;      /* white lane between trim rectangles, for scissors */
+  --card-pad: 7mm;     /* inset from trim line to design frame */
+  --tick: 3mm;         /* crop-tick length */
+  --hair: 0.2mm;       /* hairline weight for trim + rules */
+
+  /* Safe area: home printers cannot print to the sheet edge. Nothing that
+     matters sits within this margin. */
+  --safe: 8mm;
+
+  /* Filled by the theme; sensible fallbacks so base renders alone. */
+  --ink: #1a1a1a;
+  --paper: #ffffff;
+  --accent: #6a2020;
+  --band-bg: #1a1a1a;
+  --band-ink: #f4efe6;
+  --rule: #b8b0a2;
+  --muted: #6b6357;
+  --font-body: Georgia, 'Times New Roman', serif;
+  --font-display: Georgia, serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+@page {
+  size: var(--page-size);
+  margin: 0;
+}
+html[data-paper='a4']     { --page-size: A4;     --page-w: 210mm; --page-h: 297mm; }
+html[data-paper='letter'] { --page-size: letter; --page-w: 216mm; --page-h: 279mm; }
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+
+body {
+  font-family: var(--font-body);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  text-rendering: geometricPrecision;
+}
+
+/* Each printable sheet. Exactly one page. */
+.sheet {
+  position: relative;
+  width: var(--page-w);
+  height: var(--page-h);
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sheet:last-child { page-break-after: auto; break-after: auto; }
+
+/* ---- Evidence-card deck ---------------------------------------------------*/
+
+.deck {
+  display: grid;
+  grid-template-columns: repeat(2, var(--card-w));
+  grid-auto-rows: var(--card-h);
+  column-gap: var(--cut-gap);
+  row-gap: var(--cut-gap);
+}
+
+.cut-cell {
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+}
+.cut-cell.long { grid-column: 1 / span 2; width: calc(var(--card-w) * 2 + var(--cut-gap)); }
+
+/* Trim rectangle = the line you cut along. */
+.cut-cell .trim {
+  position: absolute;
+  inset: 0;
+  border: var(--hair) solid var(--rule);
+}
+
+/* Crop ticks just outside each corner, so a pair of scissors has a target
+   even where two cards share a lane. Drawn with four thin spans per cell. */
+.tickmark { position: absolute; background: var(--rule); }
+.tickmark.h { width: var(--tick); height: var(--hair); }
+.tickmark.v { width: var(--hair); height: var(--tick); }
+.tk-tl-h { top: calc(-1 * var(--hair)); left: calc(-1 * var(--tick) - 1mm); }
+.tk-tl-v { left: calc(-1 * var(--hair)); top: calc(-1 * var(--tick) - 1mm); }
+.tk-tr-h { top: calc(-1 * var(--hair)); right: calc(-1 * var(--tick) - 1mm); }
+.tk-tr-v { right: calc(-1 * var(--hair)); top: calc(-1 * var(--tick) - 1mm); }
+.tk-bl-h { bottom: calc(-1 * var(--hair)); left: calc(-1 * var(--tick) - 1mm); }
+.tk-bl-v { left: calc(-1 * var(--hair)); bottom: calc(-1 * var(--tick) - 1mm); }
+.tk-br-h { bottom: calc(-1 * var(--hair)); right: calc(-1 * var(--tick) - 1mm); }
+.tk-br-v { right: calc(-1 * var(--hair)); bottom: calc(-1 * var(--tick) - 1mm); }
+
+/* The card artwork, inset from the trim line. */
+.card {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+/* Header band: carries the number, title, and the round pip the host sorts by.
+   In colour mode the band is filled; in saver mode it is drawn with rules.
+   A fixed min-height keeps every card's band identical whether the title is one
+   line or two, so a cut deck looks like one set. */
+.card .band {
+  position: relative;
+  min-height: 30mm;
+  padding: var(--card-pad) var(--card-pad) 4mm;
+  background: var(--band-bg);
+  color: var(--band-ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   /* number + title sit to the bottom of the band */
+}
+html[data-ink='saver'] .card .band {
+  background: transparent;
+  color: var(--ink);
+  border-bottom: var(--hair) solid var(--ink);
+}
+
+.card .cardno {
+  font-family: var(--font-display);
+  font-size: 8.5mm;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.card .cardtitle {
+  font-family: var(--font-display);
+  font-size: 4.6mm;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 2.5mm;
+  line-height: 1.15;
+  padding-right: 13mm;         /* keep long titles clear of the round pip */
+}
+
+/* Round pip — deliberately loud and isolated in the outer-top corner so a host
+   can sort the deck by round WITHOUT reading the card. */
+.card .pip {
+  position: absolute;
+  top: var(--card-pad);
+  right: var(--card-pad);
+  width: 11mm;
+  height: 11mm;
+  border: 0.5mm solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 5.5mm;
+  line-height: 1;
+}
+html[data-ink='colour'] .card .pip { color: var(--band-ink); border-color: var(--band-ink); }
+
+.card .body {
+  flex: 1;
+  padding: 6mm var(--card-pad) 4mm;
+  font-size: var(--card-font, 3.8mm);
+  line-height: 1.44;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centre short cards; long cards simply fill */
+}
+.card .body p { margin: 0 0 2.6mm; }
+.card .body p:last-child { margin-bottom: 0; }
+.card .body p.direction { font-style: italic; color: var(--muted); }
+.card .body em { font-style: italic; }
+.card .body strong { font-weight: 700; }
+
+/* Bottom ornament anchors every card so a short one reads as finished, not
+   empty: a short oxblood rule with a small centred lozenge. */
+.card .finis {
+  height: 8mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  color: var(--accent);
+}
+.card .finis::before,
+.card .finis::after {
+  content: '';
+  width: 12mm;
+  height: 0.3mm;
+  background: currentColor;
+  opacity: 0.7;
+}
+.card .finis i {
+  width: 2mm;
+  height: 2mm;
+  background: currentColor;
+  transform: rotate(45deg);
+  display: block;
+}
+html[data-ink='saver'] .card .finis { color: var(--ink); }
+
+/* A thin accent rule under the band ties colour and saver modes together. */
+.card .band::after {
+  content: '';
+  position: absolute;
+  left: var(--card-pad);
+  right: var(--card-pad);
+  bottom: 0;
+  height: 0.6mm;
+  background: var(--accent);
+}
+html[data-ink='saver'] .card .band::after { display: none; }

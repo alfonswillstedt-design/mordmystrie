@@ -1,0 +1,14 @@
+{
+  "name": "mordmyst-print-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Content-agnostic print-production system for printable murder-mystery party games. Markdown source -> print-ready PDFs.",
+  "type": "commonjs",
+  "bin": { "mordmyst": "render.js" },
+  "scripts": {
+    "build": "node render.js"
+  },
+  "dependencies": {
+    "playwright-core": "^1.56.0"
+  }
+}

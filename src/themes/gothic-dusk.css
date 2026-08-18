@@ -1,0 +1,74 @@
+/* ============================================================================
+   THEME: Gothic dusk — near-black, bone white, oxblood accent, high-contrast serif.
+   A theme sets variables and may add small theme-only flourishes. It never
+   touches layout geometry. Switching theme = changing one line in mystery.toml.
+   ============================================================================ */
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../assets/fonts/EBGaramond-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../assets/fonts/EBGaramond-Italic.woff2') format('woff2');
+  font-weight: 400; font-style: italic; font-display: block;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../assets/fonts/EBGaramond-Medium.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../assets/fonts/EBGaramond-SemiBold.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../assets/fonts/EBGaramond-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600; font-style: italic; font-display: block;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../assets/fonts/EBGaramond-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../../assets/fonts/CormorantGaramond-SemiBold.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: block;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../../assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: block;
+}
+
+:root {
+  --ink:      #191614;   /* near-black, warm */
+  --paper:    #f5f0e7;   /* bone white */
+  --accent:   #6d1f1f;   /* oxblood */
+  --band-bg:  #17130f;   /* near-black band */
+  --band-ink: #efe7d7;   /* bone on the band */
+  --rule:     #a99f8c;   /* muted trim/cut lines */
+  --muted:    #756a58;   /* scene-directions, secondary */
+
+  --font-body:    'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-mono:    'Courier New', monospace;
+}
+
+/* In full colour the paper is warm bone; body text pages stay light with dark
+   accents (dark fills reserved for bands and card headers only). */
+html[data-ink='colour'] body { background: var(--paper); }
+html[data-ink='saver']  body { background: #ffffff; --paper: #ffffff; --muted: #55503f; }
+
+/* Card number set in the dramatic display face for a strong figure the eye
+   catches first. */
+.card .cardno { font-family: var(--font-display); font-weight: 700; }
+.card .cardtitle { font-weight: 600; }
+.card .pip { font-family: var(--font-display); }
+
+/* Body reads as a document: generous leading, old-style serif. */
+.card .body { font-weight: 400; }

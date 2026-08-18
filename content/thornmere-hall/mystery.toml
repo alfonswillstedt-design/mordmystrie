@@ -1,0 +1,13 @@
+# The only file you edit to reskin or rescale a mystery.
+# Everything else is content (the .md files) or layout (the engine).
+
+title   = "Thornmere Hall"
+slug    = "thornmere-hall"
+theme   = "gothic-dusk"     # gothic-dusk | aged-parchment | modern-elegant | autumn-dark | case-file
+players = 8                 # 8 = full cast, 6 = core cast (see host guide)
+
+[source]                    # which markdown file holds what. Rename freely per mystery.
+characters = "karaktarshaften.md"
+documents  = "utskriftsdokument.md"
+host_guide = "vardguide.md"
+solution   = "losning.md"
