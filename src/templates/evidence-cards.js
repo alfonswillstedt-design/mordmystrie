@@ -3,15 +3,7 @@
 // and a round pip in the corner. Content-agnostic: it is handed an array of
 // card objects and never inspects their text.
 
-const ROMAN = { 1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI' };
-
-function ticks() {
-  // Four corner crop ticks (two spans each) for a scissors target.
-  const corners = ['tl', 'tr', 'bl', 'br'];
-  return corners
-    .map((c) => `<span class="tickmark h tk-${c}-h"></span><span class="tickmark v tk-${c}-v"></span>`)
-    .join('');
-}
+const { ROMAN, ticks } = require('../marks');
 
 function cardCell(card) {
   const pip = ROMAN[card.round] || String(card.round || '');

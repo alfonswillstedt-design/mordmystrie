@@ -46,6 +46,10 @@ const INKS = { colour: 'full-colour', saver: 'ink-saver' };
 const TEMPLATES = [
   { file: 'evidence-cards',     mod: require('./src/templates/evidence-cards'),     margin: '0' },
   { file: 'character-booklets', mod: require('./src/templates/character-booklets'), margin: '15mm 16mm' },
+  { file: 'place-cards',        mod: require('./src/templates/place-cards'),        margin: '0' },
+  { file: 'verdict-cards',      mod: require('./src/templates/verdict-cards'),      margin: '0' },
+  { file: 'envelope-labels',    mod: require('./src/templates/envelope-labels'),    margin: '0' },
+  { file: 'private-notes',      mod: require('./src/templates/private-notes'),      margin: '0' },
 ];
 
 const PAGE_SIZE = { a4: 'A4', letter: 'letter' };

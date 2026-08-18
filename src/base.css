@@ -356,3 +356,133 @@ html[data-ink='saver'] .bk-round-tab {
   letter-spacing: 0.06em;
   color: var(--muted);
 }
+
+/* ---- Shared grids for card-style sheets -----------------------------------*/
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, var(--cell-w, 96mm));
+  grid-auto-rows: var(--cell-h, 118mm);
+  column-gap: var(--cut-gap);
+  row-gap: var(--cut-gap);
+}
+.grid-notes {
+  display: grid;
+  grid-template-columns: repeat(2, 92mm);
+  grid-auto-rows: 66mm;
+  column-gap: var(--cut-gap);
+  row-gap: var(--cut-gap);
+}
+
+/* ---- Place cards (tent fold) ----------------------------------------------*/
+.place-grid { --cell-w: 100mm; --cell-h: 120mm; }
+.pc-cell { width: 100mm; height: 120mm; }
+.pc { position: absolute; inset: 0; display: flex; flex-direction: column; }
+.pc-half { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6mm; }
+.pc-top { transform: rotate(180deg); }         /* upside-down so the tent reads on both faces */
+.pc-face { display: flex; flex-direction: column; align-items: center; gap: 2.5mm; }
+.pc-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 8.5mm;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.pc-sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 3.6mm;
+  color: var(--muted);
+}
+.pc-foldline {
+  position: relative;
+  height: 0;
+  border-top: 0.2mm dashed var(--rule);
+  display: flex; align-items: center; justify-content: center;
+}
+.pc-foldline span {
+  position: absolute;
+  background: var(--paper);
+  padding: 0 2mm;
+  font-family: var(--font-body);
+  font-size: 2.4mm;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--rule);
+}
+
+/* ---- Verdict cards --------------------------------------------------------*/
+.grid-2x2:not(.place-grid):not(.label-grid) { --cell-w: 96mm; --cell-h: 128mm; }
+.vc-cell { width: 96mm; height: 128mm; }
+.vc { position: absolute; inset: 0; padding: 8mm 7mm; display: flex; flex-direction: column; }
+.vc-head {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 5mm;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+  padding-bottom: 2.5mm;
+  border-bottom: 0.4mm solid var(--accent);
+  margin-bottom: 3.5mm;
+}
+.vc-fields { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 3mm; }
+.vc-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 3.3mm;
+  margin-bottom: 2mm;
+  color: var(--ink);
+}
+.vc-lines { display: flex; flex-direction: column; gap: 7mm; }
+.vc-writeline { border-bottom: 0.2mm solid var(--rule); height: 0; }
+
+/* ---- Envelope labels ------------------------------------------------------*/
+.label-stack {
+  display: grid;
+  grid-template-columns: 150mm;
+  grid-auto-rows: 48mm;
+  row-gap: 10mm;
+}
+.el-cell { width: 150mm; height: 48mm; }
+.el { position: absolute; inset: 0; display: flex; align-items: center; gap: 5mm; padding: 6mm 7mm; }
+.el-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 9mm;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-right: 0.4mm solid var(--rule);
+  padding-right: 5mm;
+  min-width: 26mm;
+  text-align: center;
+}
+.el-body { font-family: var(--font-body); font-size: 3.3mm; line-height: 1.42; color: var(--ink); }
+.el-line { margin: 0 0 0.8mm; }
+
+/* ---- Private notes --------------------------------------------------------*/
+.pn-cell { width: 92mm; height: 66mm; }
+.pn { position: absolute; inset: 0; padding: 6mm; display: flex; flex-direction: column; }
+.pn-head { display: flex; align-items: baseline; gap: 2mm; margin-bottom: 3mm; }
+.pn-for {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 2.6mm;
+  color: var(--muted);
+}
+.pn-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 5.5mm;
+  color: var(--ink);
+}
+.pn-body { flex: 1; font-family: var(--font-body); font-size: 3.4mm; line-height: 1.42; color: var(--ink); }
+.pn-body p { margin: 0 0 2mm; }
+.pn-body p.direction { font-style: italic; color: var(--muted); }
+.pn-body em { font-style: italic; }
+.pn-finis { display: flex; justify-content: center; padding-top: 2mm; }
+.pn-finis i { width: 2mm; height: 2mm; background: var(--accent); transform: rotate(45deg); }
+html[data-ink='saver'] .pn-finis i { background: var(--ink); }
