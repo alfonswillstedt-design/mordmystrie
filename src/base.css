@@ -338,3 +338,21 @@ html[data-ink='saver'] .bk-round-tab {
   color: var(--muted);
   text-align: center;
 }
+
+/* Intentionally-blank filler page, inserted by the renderer to round a booklet
+   up to a whole sheet. Labelled so a buyer never mistakes it for a misprint. */
+.booklet-blank {
+  break-before: page;
+  page-break-before: always;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.booklet-blank span {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 3.2mm;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}

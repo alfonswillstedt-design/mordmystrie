@@ -102,26 +102,44 @@ async function main() {
   const browser = await chromium.launch({ executablePath: CHROME, args: ['--no-sandbox', '--font-render-hinting=none'] });
   const page = await browser.newPage();
 
+  const dims = (paper) => ({ width: paper === 'a4' ? '210mm' : '216mm', height: paper === 'a4' ? '297mm' : '279mm' });
+
+  // Render one HTML body to a PDF buffer, returning the buffer and its page count.
+  async function toPdf(bodyHtml, { paper, ink, margin, outPath }) {
+    const html = htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink, margin });
+    await page.setContent(html, { waitUntil: 'load' });
+    await page.evaluate(() => document.fonts.ready);
+    const buf = await page.pdf({ ...dims(paper), printBackground: true, preferCSSPageSize: true });
+    if (outPath) fs.writeFileSync(outPath, buf);
+    const pages = (buf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
+    return { pages };
+  }
+
+  // Booklets must occupy whole sheets so they can be handed out individually.
+  // Measure each booklet's page count (once per paper — ink doesn't change flow)
+  // and mark those that come out odd, so the template pads them to even.
+  async function padSetFor(paper) {
+    const cast = t_booklets.mod.getCast(model);
+    const padAfter = new Set();
+    for (let i = 0; i < cast.length; i++) {
+      const { pages } = await toPdf(t_booklets.mod.renderOne(cast[i]), { paper, ink: 'colour', margin: t_booklets.margin });
+      if (pages % 2 === 1) padAfter.add(i);
+    }
+    return padAfter;
+  }
+  const t_booklets = TEMPLATES.find((t) => t.file === 'character-booklets');
+
   let count = 0;
   for (const paper of PAPERS) {
+    const bookletPad = t_booklets ? await padSetFor(paper) : new Set();
     for (const [ink, inkDir] of Object.entries(INKS)) {
       const dir = path.join(outRoot, paper, inkDir);
       fs.mkdirSync(dir, { recursive: true });
       for (const t of TEMPLATES) {
-        const bodyHtml = t.mod.render(model);
+        const opts = t === t_booklets ? { padAfter: bookletPad } : {};
+        const bodyHtml = t.mod.render(model, opts);
         if (!bodyHtml.trim()) continue;
-        const html = htmlDoc({ baseCss, themeCss, bodyHtml, paper, ink, margin: t.margin });
-        // Load from the src dir so the relative font URLs in the theme resolve.
-        await page.setContent(html, { waitUntil: 'load' });
-        await page.evaluate(() => document.fonts.ready);
-        const pdf = path.join(dir, `${t.file}.pdf`);
-        await page.pdf({
-          path: pdf,
-          width: paper === 'a4' ? '210mm' : '216mm',
-          height: paper === 'a4' ? '297mm' : '279mm',
-          printBackground: true,
-          preferCSSPageSize: true,
-        });
+        await toPdf(bodyHtml, { paper, ink, margin: t.margin, outPath: path.join(dir, `${t.file}.pdf`) });
         count++;
       }
     }
