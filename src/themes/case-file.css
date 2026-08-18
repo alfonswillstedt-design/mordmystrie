@@ -1,0 +1,35 @@
+/* ============================================================================
+   THEME: Case file — manila, red stamp, monospace, official look.
+   ============================================================================ */
+
+@font-face { font-family: 'Courier Prime'; src: url('../../assets/fonts/CourierPrime-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'Courier Prime'; src: url('../../assets/fonts/CourierPrime-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'Courier Prime'; src: url('../../assets/fonts/CourierPrime-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Special Elite'; src: url('../../assets/fonts/SpecialElite-Regular.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: block; }
+
+:root {
+  --ink:      #241f17;   /* typed black */
+  --paper:    #e7d9b8;   /* manila */
+  --accent:   #a3241d;   /* stamp red */
+  --band-bg:  #2b2519;   /* dark manila/black */
+  --band-ink: #e7d9b8;   /* manila on dark */
+  --rule:     #b3a271;   /* manila rule */
+  --muted:    #7c6f52;   /* faded type */
+
+  --font-body:    'Courier Prime', 'Courier New', monospace;
+  --font-display: 'Special Elite', 'Courier New', monospace;
+  --font-mono:    'Courier Prime', 'Courier New', monospace;
+}
+
+html[data-ink='colour'] body { background: var(--paper); }
+html[data-ink='saver']  body { background: #fbf6ea; --paper: #fbf6ea; --muted: #6a5e43; }
+
+/* Monospace body sets wider; ease sizes down so cards don't overrun, and tighten
+   the tracking on stamped headings for an official-document look. */
+.card .body { font-size: 3.4mm; line-height: 1.4; }
+.bk-sections { font-size: 3.3mm; }
+.doc-body, .pn-body { font-size: 3.5mm; }
+.env-body { font-size: 4.4mm; }
+.card .cardtitle, .vc-head, .el-num, .bk-round-word, .doc-kicker { letter-spacing: 0.14em; }
+.card .cardtitle { color: var(--accent); }
+html[data-ink='colour'] .card .band .cardtitle { color: var(--band-ink); }

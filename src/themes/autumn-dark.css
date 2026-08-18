@@ -1,0 +1,28 @@
+/* ============================================================================
+   THEME: Autumn dark — deep plum and moss, amber accent.
+   ============================================================================ */
+
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-SemiBoldItalic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('../../assets/fonts/CormorantGaramond-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: block; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('../../assets/fonts/CormorantGaramond-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+
+:root {
+  --ink:      #2a2030;   /* deep plum-black */
+  --paper:    #f2ece2;   /* warm bone */
+  --accent:   #b5731c;   /* amber */
+  --band-bg:  #241a2b;   /* deep plum */
+  --band-ink: #efe6d6;   /* warm cream on plum */
+  --rule:     #9aa07a;   /* moss */
+  --muted:    #6e5f6a;   /* muted plum */
+
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-mono:    'Courier New', monospace;
+}
+
+html[data-ink='colour'] body { background: var(--paper); }
+html[data-ink='saver']  body { background: #ffffff; --paper: #ffffff; --muted: #5b4d57; }

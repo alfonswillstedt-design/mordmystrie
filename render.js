@@ -15,8 +15,32 @@ const path = require('path');
 const { chromium } = require('playwright-core');
 const { parseDocuments, parseCharacters, parseFlow } = require('./src/parse');
 
-const CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 const ROOT = __dirname;
+
+// Find a Chromium to drive. Works across Claude Code sessions (whose bundled
+// build version changes) and on an ordinary machine with Chrome/Chromium
+// installed. Override with CHROMIUM_PATH if needed.
+function findChromium() {
+  const candidates = [];
+  if (process.env.CHROMIUM_PATH) candidates.push(process.env.CHROMIUM_PATH);
+  const pw = '/opt/pw-browsers';
+  try {
+    for (const d of fs.readdirSync(pw)) {
+      if (/^chromium-\d+$/.test(d)) candidates.push(path.join(pw, d, 'chrome-linux', 'chrome'));
+    }
+  } catch { /* not a Claude Code session */ }
+  candidates.push(
+    '/usr/bin/chromium', '/usr/bin/chromium-browser', '/usr/bin/google-chrome',
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  );
+  const found = candidates.find((p) => { try { return fs.existsSync(p); } catch { return false; } });
+  if (!found) {
+    throw new Error('No Chromium found. Install Google Chrome or Chromium, or set CHROMIUM_PATH to its executable.');
+  }
+  return found;
+}
+const CHROME = findChromium();
 
 // ---- tiny TOML reader (flat keys + [section] tables; enough for mystery.toml)
 function readToml(file) {

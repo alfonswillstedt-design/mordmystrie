@@ -1,0 +1,29 @@
+/* ============================================================================
+   THEME: Aged parchment — cream, sepia, faded brown, typewriter feel.
+   ============================================================================ */
+
+@font-face { font-family: 'Special Elite'; src: url('../../assets/fonts/SpecialElite-Regular.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('../../assets/fonts/EBGaramond-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+
+:root {
+  --ink:      #3a2e20;   /* faded brown-black */
+  --paper:    #f1e7d0;   /* cream parchment */
+  --accent:   #874f2b;   /* sepia */
+  --band-bg:  #2f2417;   /* dark brown */
+  --band-ink: #efe4cb;   /* cream on brown */
+  --rule:     #b6a071;   /* faded brown rule */
+  --muted:    #86714f;   /* faded ink */
+
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-display: 'Special Elite', 'Courier New', monospace;
+  --font-mono:    'Special Elite', 'Courier New', monospace;
+}
+
+html[data-ink='colour'] body { background: var(--paper); }
+html[data-ink='saver']  body { background: #fffdf8; --paper: #fffdf8; --muted: #6f5c3d; }
+
+/* The typewriter face wants a touch less tracking than the default display. */
+.card .cardtitle, .bk-round-word, .el-num, .doc-kicker { letter-spacing: 0.1em; }

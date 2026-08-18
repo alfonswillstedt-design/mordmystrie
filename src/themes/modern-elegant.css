@@ -1,0 +1,32 @@
+/* ============================================================================
+   THEME: Modern elegant — off-white, charcoal, thin brass rule, whitespace.
+   ============================================================================ */
+
+@font-face { font-family: 'Cormorant Garamond'; src: url('../../assets/fonts/CormorantGaramond-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: block; }
+@font-face { font-family: 'Cormorant Garamond'; src: url('../../assets/fonts/CormorantGaramond-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'Jost'; src: url('../../assets/fonts/Jost-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'Jost'; src: url('../../assets/fonts/Jost-Italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'Jost'; src: url('../../assets/fonts/Jost-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: block; }
+@font-face { font-family: 'Jost'; src: url('../../assets/fonts/Jost-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: block; }
+
+:root {
+  --ink:      #2c2c2c;   /* charcoal */
+  --paper:    #faf8f4;   /* off-white */
+  --accent:   #9a7b3f;   /* brass */
+  --band-bg:  #2b2b2b;   /* charcoal band */
+  --band-ink: #f6f3ee;   /* off-white on charcoal */
+  --rule:     #d6d1c7;   /* faint warm grey */
+  --muted:    #8b877e;   /* soft grey */
+
+  --font-body:    'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-mono:    'Jost', monospace;
+}
+
+html[data-ink='colour'] body { background: var(--paper); }
+html[data-ink='saver']  body { background: #ffffff; --paper: #ffffff; }
+
+/* Cormorant runs large; lift display sizes a hair for presence. */
+.inv-title, .doc-title, .bk-name, .sol-cover-title { letter-spacing: 0.02em; }
+/* A sans body wants a slightly smaller size and looser leading than a serif. */
+.card .body, .bk-sections, .doc-body, .env-body, .inv-body, .pn-body { letter-spacing: 0.005em; }
