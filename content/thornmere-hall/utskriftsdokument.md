@@ -77,11 +77,11 @@ Somewhere around midnight the thought went round the table without anyone saying
 
 Rowena found it in the study, undamaged, sitting on the desk. It was out. He had taken it out to bring it down with him.
 
-The water dropped a little after four. At half past five a doctor and two police officers came up the valley road on foot, and the first thing they did was tell all of you to sit down and wait.
+The water dropped a little after four, and the moment the embankment could be crossed on foot somebody was sent over it for help. What came back, a little after five, was the doctor from the next village — the police are still hours away down a broken road. And while you waited he did the one thing none of you could. He examined the body properly, in daylight, cold and stiff, and he wrote down what it tells him.
 
-They have been down at the water since. What they have brought back up is on the table in front of you, and it is no longer guesswork. It is a body that cooled at a measurable rate, a window that does not open, a fire that somebody lit, and a set of papers that say where people actually were.
+That, and everything the rest of you turned up in the night, is on the table in front of you. It is no longer guesswork. It is a body that cooled at a measurable rate, a window that does not open, a fire that somebody lit, and a set of papers that say where people actually were.
 
-They begin taking statements at eight o'clock. That is what you have.
+The road will be clear by the afternoon. Whoever it was will leave this valley in the back of a car. Before that happens, you are going to know which of you it is.
 
 Four of you are about to stop having to defend yourselves.
 
@@ -277,7 +277,7 @@ She states that it was still smoking when she passed the window again at around 
 
 **17 — FORENSIC ASSESSMENT**
 
-Examination carried out at the waterline at 5:50 a.m., a little under seven hours after death.
+Examination carried out at the waterline at 5:50 a.m., close to eight hours after death.
 
 Based on body temperature, the progression of rigor and an ambient temperature held at ten degrees through the night, death occurred between 9:50 p.m. and 10:10 p.m.
 

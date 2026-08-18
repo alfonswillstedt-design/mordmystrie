@@ -95,7 +95,7 @@ Julian and Nadia. Both alone. Neither able to prove anything.
 
 At this stage the evidence does not favour either. If you were choosing between them on instinct, you had a coin flip.
 
-### Step five — the two chains that separate them
+### Step five — the three chains that separate them
 
 **The light and the window.** The boathouse was dark when Callum went down to the cottage, and he watched it come alight before ten. Nadia's ninth frame, timed at four minutes past ten, shows it still burning (**C11**). It was still burning when you found the body at twenty to eleven. The lantern hangs on a nail inside that door and does not light itself — Rowena will tell you so, and she is right.
 
@@ -115,7 +115,7 @@ Everyone except Julian.
 
 This chain asks you to believe Nadia, and Nadia is the other person without an alibi. That is precisely why it is not the only chain.
 
-**The time of death.** The assessment puts death between ten to ten and ten past, from an examination carried out at ten to six the following morning, near enough seven hours after the fact, which is the interval at which temperature and rigor are at their most readable (**C17**). Julian, examining the body at ten to eleven at night, in the rain, put it at around half past ten — and that opinion is recorded in his own statement (**C12**).
+**The time of death.** The assessment puts death between ten to ten and ten past, from an examination carried out at ten to six the following morning, the better part of eight hours after the fact, which is the interval at which temperature and rigor are at their most readable (**C17**). Julian, examining the body at ten to eleven at night, in the rain, put it at around half past ten — and that opinion is recorded in his own statement (**C12**).
 
 That is twenty minutes beyond the latest the assessment allows and forty minutes beyond the earliest.
 
@@ -133,7 +133,7 @@ The certificate with the blank toxicology section (**C3**). The medical file wit
 
 Ambrose was going to read that aloud at midnight.
 
-### The two details people ask about afterwards
+### The three details people ask about afterwards
 
 **The blow came from above and slightly from the left (C18).** That is what a right-handed strike from behind looks like when the man in front of you is turning away. It rules nobody in and nobody out — Julian is right-handed, and so are five other people at that table.
 
