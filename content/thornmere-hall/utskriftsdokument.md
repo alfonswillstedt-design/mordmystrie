@@ -53,6 +53,8 @@ It turns out that nine o'clock is a time everyone can account for. Ten o'clock i
 
 The séance ran in the drawing room from half past nine until half past ten. Two people sat at that table without once leaving it. The rest came and went, and nobody thought to keep score.
 
+Ambrose was never at it. He had said he would come down when he was ready, and nobody pressed him — it was his evening and he had a reading to prepare for midnight.
+
 And somewhere in that half hour, Ambrose walked down to the water.
 
 He did not go by chance. He went because somebody asked him to.
@@ -69,13 +71,17 @@ End the round with each person naming who they suspect and why.
 
 *Read aloud after round two.*
 
-It is past midnight now.
+It is a quarter to seven in the morning and the sky over the lake has gone the colour of dishwater. Nobody has slept.
 
-Nobody has said it out loud, but you have all thought it: he would have read from the diary at twelve.
+Somewhere around midnight the thought went round the table without anyone saying it out loud: he would have read from the diary at twelve.
 
 Rowena found it in the study, undamaged, sitting on the desk. It was out. He had taken it out to bring it down with him.
 
-What is on the table in front of you is no longer guesswork. It is a body that cooled at a measurable rate, a window that does not open, a fire that somebody lit, and a set of papers that say where people actually were.
+The water dropped a little after four. At half past five a doctor and two police officers came up the valley road on foot, and the first thing they did was tell all of you to sit down and wait.
+
+They have been down at the water since. What they have brought back up is on the table in front of you, and it is no longer guesswork. It is a body that cooled at a measurable rate, a window that does not open, a fire that somebody lit, and a set of papers that say where people actually were.
+
+They begin taking statements at eight o'clock. That is what you have.
 
 Four of you are about to stop having to defend yourselves.
 
@@ -108,7 +114,7 @@ The watch on his wrist is broken against the stone edging. The crystal is shatte
 
 **2 — THE INVITATION**
 
-Handwritten by Ambrose. Identical to all eight.
+Handwritten by Ambrose. Every guest received the same words.
 
 *I have found Iris's diary. I intend to read from it at midnight. I believe every one of you should be present when I do.*
 
@@ -137,7 +143,7 @@ Iris is the seventh, entered at the foot of the page in a hand much more recent 
 
 Ambrose's will predates the separation. On his death, Sabine inherits the entire estate.
 
-A draft of a new will lies unsigned on the desk beside it.
+A draft of a new will lies unsigned on the desk beside it, on the headed paper of a firm of solicitors in the county town.
 
 ---
 
@@ -173,7 +179,7 @@ Mrs Ashgrove brought coffee into the room at approximately 9:55 p.m. and again a
 
 **9 — THE TELEPHONE LOG**
 
-Last outgoing call 9:38 p.m., duration twelve seconds. The number belongs to a firm of solicitors.
+Last outgoing call 9:38 p.m., duration twelve seconds. The number belongs to a firm of solicitors in the county town.
 
 The line fails at 9:40 p.m.
 
@@ -187,17 +193,19 @@ Recovered from a gap in the boathouse floorboards. Water-damaged. Block capitals
 
 ---
 
-**11 — NADIA'S CONTACT SHEET**
+**11 — NADIA'S CAMERA**
 
-Fourteen frames, time-stamped, between 9:48 p.m. and 10:12 p.m.
+Fourteen frames, each stamped by the camera with the time it was taken, running from 9:48 p.m. to 10:12 p.m. Reviewed on the back of the camera in front of everybody.
 
-Frame four, taken at 9:56 p.m., shows the kitchen garden. At the edge of the frame the tool shed door stands open with a lamp lit inside, and a figure is visible at the bench.
+Frame four, at 9:56 p.m., shows the kitchen garden. At the edge of the frame the tool shed door stands open with a lamp lit inside, and a figure is visible at the bench.
 
-Frame nine, taken at 10:04 p.m., shows the south face of the house in the rain. In the lower left corner the boathouse is visible.
+Frame seven, at 10:01 p.m., shows the slope running down towards the water. The guest cottage window is lit and a figure is standing at the fireplace with its back to the glass.
+
+Frame nine, at 10:04 p.m., shows the south face of the house in the rain. In the lower left corner the boathouse is visible.
 
 **There is a light burning in the boathouse window.**
 
-Frame twelve, taken at 10:09 p.m., is another view of the kitchen garden. The tool shed door is still open, the lamp is still lit, and the same figure is at the bench.
+Frame twelve, at 10:09 p.m., is another view of the kitchen garden. The tool shed door is still open, the lamp is still lit, and the same figure is at the bench.
 
 ---
 
@@ -239,9 +247,9 @@ Ash and partly burned paper in the guest cottage grate. Handwritten. One legible
 
 *Read silently.*
 
-You remember changing lenses at around ten past ten, and that as you did you thought you saw a light moving down by the water.
+You remember changing lenses at around ten past ten, and that while the camera was down you saw somebody come up the slope from the water and go in at the side of the house.
 
-You thought nothing of it at the time.
+You assumed it was Theo. You had no reason to think otherwise, and you thought nothing of it at the time.
 
 ---
 
@@ -269,9 +277,11 @@ She states that it was still smoking when she passed the window again at around 
 
 **17 — FORENSIC ASSESSMENT**
 
-Based on body temperature, the progression of rigor, and an ambient temperature of ten degrees, death occurred between 9:50 p.m. and 10:15 p.m.
+Examination carried out at the waterline at 5:50 a.m., a little under seven hours after death.
 
-The margin of error is stated as narrow.
+Based on body temperature, the progression of rigor and an ambient temperature held at ten degrees through the night, death occurred between 9:50 p.m. and 10:10 p.m.
+
+At this interval the margin of error is stated as narrow. The examining doctor adds that an estimate made within the first hour of death, in rain and in darkness, is the least reliable estimate obtainable and should not be set against it.
 
 ---
 
@@ -279,7 +289,7 @@ The margin of error is stated as narrow.
 
 Cast iron. 4.2 kilograms. Blood and hair on one edge.
 
-No usable prints — it has been in water. The blow came from above and slightly from the left.
+It has lain half in the lake since the blow was struck and nothing can be recovered from the surface. The wound is consistent with a single blow delivered from above and slightly from the left.
 
 ---
 

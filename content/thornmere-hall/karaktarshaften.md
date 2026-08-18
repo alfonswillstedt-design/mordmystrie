@@ -96,7 +96,7 @@ You brought the letters with you tonight. All of them. Copies you kept.
 
 Shortly after half past nine you went down to the guest cottage by the water and burned them in the fireplace, one by one, and you cried while you did it, and you would rather be accused of murder than have anyone in that house know.
 
-While you were there you saw a light moving down by the boathouse. You did not see who was carrying it.
+The boathouse was dark when you came down. At some point before ten you looked up and the boathouse window was lit. You did not see who lit it.
 
 ## What you want tonight
 
@@ -122,9 +122,9 @@ If confronted with the ashes in the cottage fireplace, you must admit what you b
 
 ## Round 3
 
-Once you have admitted it, you have one thing left worth saying, and you should say it repeatedly: **you saw a light moving down at the boathouse while you were in the cottage.**
+Once you have admitted it, you have one thing left worth saying, and you should say it repeatedly: **the boathouse window was dark when you went down, and before ten o'clock it was lit.** You watched it happen.
 
-You are the only person who saw it. You are also the person who just admitted to lying about where he was for two hours, so nobody is going to take your word for anything.
+You are the only person who can say when that lantern was lit. You are also the person who has just admitted to lying about where he was for two hours, so nobody is going to take your word for anything.
 
 Push it anyway. Make them listen.
 
@@ -161,6 +161,8 @@ Your solicitor explained this to you in July. He also explained, carefully, that
 
 Tonight, during the séance, you went up to Ambrose's study and searched it. You were looking for the new will. You found a draft, unsigned, on the desk. You left it there.
 
+Iris's diary was lying on that desk as well, out and open. You did not touch it. You have thought about that since.
+
 You told everyone you were in your room.
 
 ## What you want tonight
@@ -189,6 +191,8 @@ If anyone raises the sound of a door heard from the drawing room, you must not v
 
 If confronted with the study window and the door, you must admit you were there — and you must insist that you touched nothing but paper.
 
+Once you have admitted it, say what you saw on that desk. The diary was already out at ten to ten. He had taken it out before he went anywhere, and you are the only person who can say so. It is the one useful thing you have. Make it count.
+
 ## Playing this part
 
 Sabine is composed and she is tired of being suspected of things. She answers questions precisely and never expands. She has spent two years being cross-examined by lawyers and it shows.
@@ -202,7 +206,7 @@ Her coldness reads as guilt. Let it.
 
 ## Who you are
 
-You have been housekeeper at Thornmere Hall for thirty years. You were here before Ambrose was born. You laid out his mother.
+You have been housekeeper at Thornmere Hall for thirty years. You were here before Iris was born. You laid out their mother.
 
 This is not a job. It is the whole shape of your life, and the cottage at the end of the drive is the only home you have.
 
@@ -250,13 +254,21 @@ You do not believe it. You are also not entirely sure you don't.
 
 You also know the practical things, and people will ask. The lantern in the boathouse lives in the boathouse — it hangs on a nail inside the door and it has hung there for forty years. Anyone who has spent an evening at this house knows where it is. It is not lit unless somebody goes down there and lights it, and nobody goes down there in October.
 
-It was you who noticed Ambrose was missing, at about five and twenty to eleven, when the séance broke up and he was not among them.
+It was you who noticed Ambrose was missing, at about five and twenty to eleven, when the séance broke up and he was not among them. You went to the windows on the lake side to look for him, and that was when somebody said that the boathouse was lit.
+
+## Round 2
+
+When the light in the boathouse comes up — and it will — say what you know about that lantern. It hangs on a nail inside the door, it has hung there for forty years, and it does not light itself.
+
+Somebody walked down there and struck a match. Make sure the table understands that.
 
 ## Round 3
 
-When the light in the boathouse comes up — and it will — say what you know about that lantern. It hangs on a nail, it has hung there for forty years, and it does not light itself.
+By now the lantern will have been forgotten in the argument about times. Bring it back.
 
-Somebody walked down there and struck a match. Make sure the table understands that.
+It was burning at four minutes past ten and it was still burning when you found him. That is the better part of an hour of a lit window down at the water, in plain view of half the rooms on this side of the house.
+
+Somebody was sitting in one of those rooms. Ask them what they saw.
 
 ## Playing this part
 
@@ -370,6 +382,8 @@ You receive a private note. Read it silently.
 
 ## Round 3
 
+If you have not already said what was on your note, say it now. Somebody came up from the water at about ten past ten. You assumed it was Theo — by now you will know whether it could have been.
+
 When the talk turns to who had a reason to want him quiet, say what you saw after dinner: Ambrose taking Julian aside by the study door, speaking too low to hear, and the look on Julian's face afterwards.
 
 You have not thought about it once all evening. Say it as what it is — a small thing you only just remembered.
@@ -452,7 +466,7 @@ Ambrose invited you to conduct a séance tonight. You agreed immediately.
 
 ## Your history with the Thornmeres
 
-You met Ambrose's mother in 1998 and gave her a reading that she talked about for the rest of her life. That reading built your career.
+You met Ambrose's mother the better part of thirty years ago and gave her a reading that she talked about for the rest of her life. That reading built your career.
 
 You have been coming to this house on and off ever since. You have never paid for a night's accommodation in the valley.
 
@@ -495,6 +509,16 @@ You have since worked out that the room above the drawing room is the study.
 When the evening's timings are gone over, report both noises and be precise about them: ten to ten, and twelve minutes past. You recorded them at the time.
 
 Present them as spiritual phenomena for as long as you can keep a straight face. You have a reputation to maintain and it is not one you can afford to drop in company.
+
+## Round 3
+
+If anyone asks why you really came tonight — and by now somebody will — tell them.
+
+Six weeks ago Ambrose wrote to you. He had been through the parish registers himself. Two of the drownings in your book do not exist, he named them both, and he said he intended to say so publicly. You came here to talk him out of it.
+
+Say it as what it is: the worst possible reason to be standing in a house where the man who wrote that letter has just been killed.
+
+Then say the other thing, and say it clearly. You did not leave that table.
 
 ## Playing this part
 
